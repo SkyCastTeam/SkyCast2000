@@ -356,7 +356,6 @@
     <div class="weather-overlay"></div>
 
     <audio id="bgMusic"></audio>
-    <audio id="transitionSfx" src="/SFX/transition.mp3"></audio>
      <script>
         // SkyCast 2000 Core System
         // Current Version: 1.6.0
@@ -844,7 +843,7 @@ const totalTracks = 30;
 function loadRandomTrack() {
     const audio = document.getElementById('bgMusic');
     currentTrack = Math.floor(Math.random() * totalTracks) + 1;
-    audio.src = `/Music/${currentTrack}.mp3`;
+    audio.src = `https://github.com/SkyCastTeam/SkyCast2000/raw/refs/heads/main/Music/$(currentTrack).mp3`;
     audio.loop = false; // Ensure no looping
     audio.play();
     updateTrackDisplay();
