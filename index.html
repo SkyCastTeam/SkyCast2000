@@ -8,16 +8,16 @@
     <style>
         @font-face {
             font-family: 'Weather Hewitt';
-            src: url('/fonts/WeatherHewitt.woff2') format('woff2'),
-                 url('/fonts/WeatherHewitt.woff') format('woff');
+            src: url('fonts/WeatherHewitt.woff2') format('woff2'),
+                 url('fonts/WeatherHewitt.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
             font-family: 'Weather One';
-            src: url('/fonts/WeatherOne.woff2') format('woff2'),
-                 url('/fonts/WeatherOne.woff') format('woff');
+            src: url('fonts/WeatherOne.woff2') format('woff2'),
+                 url('fonts/WeatherOne.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
@@ -844,7 +844,7 @@ const totalTracks = 30;
 function loadRandomTrack() {
     const audio = document.getElementById('bgMusic');
     currentTrack = Math.floor(Math.random() * totalTracks) + 1;
-    audio.src = `/Music/$(currentTrack).mp3`;
+    audio.src = `Music/$(currentTrack).mp3`;
     audio.loop = false; // Ensure no looping
     audio.play();
     updateTrackDisplay();
