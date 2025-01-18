@@ -890,12 +890,12 @@ function startWeatherUpdates() {
     setInterval(() => {
         updateRadar(currentLocation.lat, currentLocation.lon);
     }, 300000);
-
+    // Explanation: this little bugger was causing the radar to freak out every minute, so ive commented it out.
     // Radar transition display interval (1 minute)
-    setInterval(() => {
-        showWeatherTransition();
-    }, 60000);
-}
+    // setInterval(() => {
+    // showWeatherTransition();
+    //}, 60000);
+    //}
 // Initialize the Radomizer
 document.addEventListener('DOMContentLoaded', () => {
     loadRandomTrack();
