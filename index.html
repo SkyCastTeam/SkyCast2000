@@ -624,7 +624,6 @@ const API_CONFIG = {
     }
 };
 
-// Location Management System
 async function requestLocation() {
     try {
         const position = await new Promise((resolve, reject) => {
@@ -667,40 +666,26 @@ async function submitLocation() {
     }
 }
 
-async function setLocation(lat, lon) {
-    currentLocation.lat = lat;
-    currentLocation.lon = lon;
+// Initialize systems
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize the Randomizer
+    loadRandomTrack();
     
-    try {
-        const response = await fetch(
-            `https://api.weather.gov/points/${lat},${lon}`,
-            { headers: API_CONFIG.headers }
-        );
-        
-        if (!response.ok) {
-            throw new Error('Failed to fetch location data');
-        }
-        
-        const data = await response.json();
-        currentLocation.city = data.properties.relativeLocation.properties.city;
-        currentLocation.state = data.properties.relativeLocation.properties.state;
-        currentLocation.officeId = data.properties.cwa;
-        
-        document.getElementById('cityDisplay').textContent = 
-            `${currentLocation.city}, ${currentLocation.state}`;
-        
-        // Initialize system components
-        await Promise.all([
-            updateRadar(lat, lon),
-            fetchWeatherData()
-        ]);
-        
-        startWeatherUpdates();
-    } catch (error) {
-        console.error('Error setting location:', error);
-        alert('Error setting location. Please try again.');
+    // Check for saved location
+    const savedLat = localStorage.getItem('weatherLat');
+    const savedLon = localStorage.getItem('weatherLon');
+    
+    if (savedLat && savedLon) {
+        setLocation(savedLat, savedLon)
+            .catch(() => {
+                document.getElementById('locationPrompt').style.display = 'block';
+            });
+    } else {
+        document.getElementById('locationPrompt').style.display = 'none');
     }
-}
+});
+
+document.addEventListener('DOMContentLoaded', updateTrackDisplay);
 
 // Weather Data System
 async function fetchWeatherData() {
@@ -881,7 +866,7 @@ function toggleLocation() {
     document.getElementById('locationPrompt').style.display = 'block';
 }
 
-// Update System
+// Weather Data Update System
 function startWeatherUpdates() {
     // Weather data update interval (5 minutes)
     setInterval(fetchWeatherData, 300000);
@@ -890,12 +875,15 @@ function startWeatherUpdates() {
     setInterval(() => {
         updateRadar(currentLocation.lat, currentLocation.lon);
     }, 300000);
-    // Explanation: this little bugger was causing the radar to freak out every minute, so ive commented it out.
-    // Radar transition display interval (1 minute)
-    // setInterval(() => {
-    // showWeatherTransition();
-    //}, 60000);
-    //}
+    
+    // Radar transition display interval is commented out to prevent freaking out
+    // Keeping for future reference
+    /*
+    setInterval(() => {
+        showWeatherTransition();
+    }, 60000);
+    */
+}
 // Initialize the Radomizer
 document.addEventListener('DOMContentLoaded', () => {
     loadRandomTrack();
