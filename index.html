@@ -844,7 +844,7 @@ const totalTracks = 30;
 function loadRandomTrack() {
     const audio = document.getElementById('bgMusic');
     currentTrack = Math.floor(Math.random() * totalTracks) + 1;
-    audio.src = `https://github.com/SkyCastTeam/SkyCast2000/raw/refs/heads/main/Music/$(currentTrack).mp3`;
+    audio.src = `/Music/$(currentTrack).mp3`;
     audio.loop = false; // Ensure no looping
     audio.play();
     updateTrackDisplay();
