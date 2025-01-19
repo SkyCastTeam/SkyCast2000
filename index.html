@@ -534,35 +534,33 @@ fetch(pointData.properties.forecast, { headers: API_CONFIG.headers }),
                 `FORECAST: ${forecast[1].name.toUpperCase()} - ${forecast[1].shortForecast.toUpperCase()}`;
         }
 
-       async function updateRadar(lat, lon) {
-    try {
-        const pointResponse = await fetch(
-            `https://api.weather.gov/points/${lat},${lon}`,
-            { headers: API_CONFIG.headers }
-        );
-        
-        if (!pointResponse.ok) {
-            throw new Error('Failed to fetch NWS office');
-        }
-        
-        const pointData = await pointResponse.json();
-        const officeId = pointData.properties.cwa;
-        const radarStation = 'CONUS';  // Simplified to always use national radar
-        
-        const radarImage = document.getElementById('radarImage');
-        const radarUrl = `https://radar.weather.gov/ridge/standard/${radarStation}_loop.gif`;
-        radarImage.src = radarUrl;
-        
-        currentLocation.radarStation = radarStation;
-        return radarStation;
-    } catch (error) {
-        console.error('Error updating radar:', error);
-        const radarImage = document.getElementById('radarImage');
-        radarImage.src = 'https://radar.weather.gov/ridge/standard/CONUS_loop.gif';
-        return 'CONUS';
-    }
-}
-        }
+               async function updateRadar(lat, lon) {
+            try {
+                const pointResponse = await fetch(
+                    `https://api.weather.gov/points/${lat},${lon}`,
+                    { headers: API_CONFIG.headers }
+                );
+                
+                if (!pointResponse.ok) {
+                    throw new Error('Failed to fetch NWS office');
+                }
+                
+                const pointData = await pointResponse.json();
+                const officeId = pointData.properties.cwa;
+                const radarStation = 'CONUS';  // Simplified to always use national radar
+                
+                const radarImage = document.getElementById('radarImage');
+                const radarUrl = `https://radar.weather.gov/ridge/standard/${radarStation}_loop.gif`;
+                radarImage.src = radarUrl;
+                
+                currentLocation.radarStation = radarStation;
+                return radarStation;
+            } catch (error) {
+                console.error('Error updating radar:', error);
+                const radarImage = document.getElementById('radarImage');
+                radarImage.src = 'https://radar.weather.gov/ridge/standard/CONUS_loop.gif';
+                return 'CONUS';
+            }
 
         function showError() {
             document.getElementById('temperature').textContent = 'Error';
