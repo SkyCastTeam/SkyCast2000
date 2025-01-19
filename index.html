@@ -380,6 +380,237 @@
                 'Accept': 'application/geo+json'
             }
         };
+        const RADAR_STATIONS = {
+            // Alabama
+            'BMX': 'KBMX',  // Birmingham
+            'MOB': 'KMOB',  // Mobile
+            'HUN': 'KHTX',  // Huntsville
+        
+            // Alaska
+            'AFC': 'PAKC',  // Anchorage
+            'AFG': 'PAHG',  // Juneau
+            'AER': 'PAEC',  // Fairbanks
+        
+            // Arizona
+            'PSR': 'KIWA',  // Phoenix
+            'TWC': 'KEMX',  // Tucson
+            'FGZ': 'KFSX',  // Flagstaff
+        
+            // Arkansas
+            'LZK': 'KLZK',  // Little Rock
+            'FSM': 'KSRX',  // Fort Smith
+        
+            // California
+            'SGX': 'KNKX',  // San Diego
+            'LOX': 'KVTX',  // Los Angeles
+            'MTR': 'KMUX',  // San Francisco
+            'STO': 'KDAX',  // Sacramento
+            'HNX': 'KHNX',  // Fresno
+            
+            // Colorado
+            'BOU': 'KFTG',  // Denver
+            'PUB': 'KPUX',  // Pueblo
+            'GJT': 'KGJX',  // Grand Junction
+        
+            // Connecticut
+            'BOX': 'KBOX',  // Hartford (Boston coverage)
+        
+            // Delaware
+            'PHI': 'KDIX',  // Wilmington (Philadelphia coverage)
+        
+            // Florida
+            'TBW': 'KTBW',  // Tampa
+            'MLB': 'KMLB',  // Melbourne
+            'JAX': 'KJAX',  // Jacksonville
+            'MFL': 'KAMX',  // Miami
+            'TAE': 'KTLH',  // Tallahassee
+            'KEY': 'KBYX',  // Key West
+        
+            // Georgia
+            'FFC': 'KFFC',  // Atlanta
+            'VAD': 'KVAX',  // Valdosta
+            'CHS': 'KCLX',  // Savannah
+        
+            // Hawaii
+            'HFO': 'PHKI',  // Honolulu
+            'PHO': 'PHMO',  // Molokai
+            'HHW': 'PHWA',  // South Hawaii
+        
+            // Idaho
+            'BOI': 'KCBX',  // Boise
+            'PIH': 'KSFX',  // Pocatello
+        
+            // Illinois
+            'LOT': 'KLOT',  // Chicago
+            'ILX': 'KILX',  // Lincoln/Springfield
+            'PAH': 'KPAH',  // Paducah
+        
+            // Indiana
+            'IND': 'KIND',  // Indianapolis
+            'IWX': 'KIWX',  // Northern Indiana
+        
+            // Iowa
+            'DMX': 'KDMX',  // Des Moines
+            'DVN': 'KDVN',  // Davenport
+        
+            // Kansas
+            'TOP': 'KTWX',  // Topeka
+            'ICT': 'KICT',  // Wichita
+            'DDC': 'KDDC',  // Dodge City
+        
+            // Kentucky
+            'LMK': 'KLVX',  // Louisville
+            'JKL': 'KJKL',  // Jackson
+            'PAH': 'KPAH',  // Paducah
+        
+            // Louisiana
+            'LIX': 'KLIX',  // New Orleans
+            'SHV': 'KSHV',  // Shreveport
+            'LCH': 'KLCH',  // Lake Charles
+        
+            // Maine
+            'GYX': 'KGYX',  // Portland
+            'CAR': 'KCBW',  // Caribou
+        
+            // Maryland
+            'LWX': 'KLWX',  // Baltimore/DC
+        
+            // Massachusetts
+            'BOX': 'KBOX',  // Boston
+        
+            // Michigan
+            'DTX': 'KDTX',  // Detroit
+            'GRR': 'KGRR',  // Grand Rapids
+            'MQT': 'KMQT',  // Marquette
+            'APX': 'KAPX',  // Gaylord
+        
+            // Minnesota
+            'MPX': 'KMPX',  // Minneapolis
+            'DLH': 'KDLH',  // Duluth
+        
+            // Mississippi
+            'JAN': 'KDGX',  // Jackson
+            'MEG': 'KNQA',  // Memphis
+        
+            // Missouri
+            'LSX': 'KLSX',  // St. Louis
+            'EAX': 'KEAX',  // Kansas City
+            'SGF': 'KSGF',  // Springfield
+        
+            // Montana
+            'TFX': 'KTFX',  // Great Falls
+            'BYZ': 'KBLX',  // Billings
+            'MSO': 'KMSX',  // Missoula
+        
+            // Nebraska
+            'OAX': 'KOAX',  // Omaha
+            'LBF': 'KLNX',  // North Platte
+            'GID': 'KUEX',  // Hastings
+        
+            // Nevada
+            'VEF': 'KESX',  // Las Vegas
+            'REV': 'KRGX',  // Reno
+        
+            // New Hampshire
+            'GYX': 'KGYX',  // Concord (Portland coverage)
+        
+            // New Jersey
+            'PHI': 'KDIX',  // Philadelphia
+            'OKX': 'KOKX',  // New York City
+        
+            // New Mexico
+            'ABQ': 'KABX',  // Albuquerque
+            'EPZ': 'KEPZ',  // El Paso
+        
+            // New York
+            'OKX': 'KOKX',  // New York City
+            'ALY': 'KENX',  // Albany
+            'BGM': 'KBGM',  // Binghamton
+            'BUF': 'KBUF',  // Buffalo
+        
+            // North Carolina
+            'RAH': 'KRAX',  // Raleigh
+            'GSP': 'KGSP',  // Greenville-Spartanburg
+            'MHX': 'KMHX',  // Morehead City
+        
+            // North Dakota
+            'BIS': 'KBIS',  // Bismarck
+            'FGF': 'KMVX',  // Grand Forks
+        
+            // Ohio
+            'CLE': 'KCLE',  // Cleveland
+            'ILN': 'KILN',  // Wilmington/Cincinnati
+            'IWX': 'KIWX',  // Northern Indiana
+        
+            // Oklahoma
+            'OUN': 'KTLX',  // Norman/Oklahoma City
+            'TSA': 'KINX',  // Tulsa
+        
+            // Oregon
+            'PQR': 'KRTX',  // Portland
+            'MFR': 'KMAX',  // Medford
+        
+            // Pennsylvania
+            'PBZ': 'KPBZ',  // Pittsburgh
+            'PHI': 'KDIX',  // Philadelphia
+            'CTP': 'KCCX',  // State College
+        
+            // Rhode Island
+            'BOX': 'KBOX',  // Providence (Boston coverage)
+        
+            // South Carolina
+            'CAE': 'KCAE',  // Columbia
+            'CHS': 'KCLX',  // Charleston
+            'GSP': 'KGSP',  // Greenville-Spartanburg
+        
+            // South Dakota
+            'FSD': 'KFSD',  // Sioux Falls
+            'UNR': 'KUDX',  // Rapid City
+        
+            // Tennessee
+            'MRX': 'KMRX',  // Morristown/Knoxville
+            'OHX': 'KOHX',  // Nashville
+            'MEG': 'KNQA',  // Memphis
+        
+            // Texas
+            'FWD': 'KFWS',  // Dallas/Fort Worth
+            'HGX': 'KHGX',  // Houston
+            'EWX': 'KEWX',  // Austin/San Antonio
+            'MAF': 'KMAF',  // Midland/Odessa
+            'LUB': 'KLBB',  // Lubbock
+            'SJT': 'KSJT',  // San Angelo
+            'CRP': 'KCRP',  // Corpus Christi
+            'BRO': 'KBRO',  // Brownsville
+            'EPZ': 'KEPZ',  // El Paso
+        
+            // Utah
+            'SLC': 'KMTX',  // Salt Lake City
+            'ICC': 'KICX',  // Cedar City
+        
+            // Vermont
+            'BTV': 'KCXX',  // Burlington
+        
+            // Virginia
+            'LWX': 'KLWX',  // Northern Virginia/DC
+            'AKQ': 'KAKQ',  // Wakefield/Richmond
+        
+            // Washington
+            'SEW': 'KATX',  // Seattle
+            'OTX': 'KOTX',  // Spokane
+        
+            // West Virginia
+            'RLX': 'KRLX',  // Charleston
+            'PBZ': 'KPBZ',  // Pittsburgh
+        
+            // Wisconsin
+            'MKX': 'KMKX',  // Milwaukee
+            'GRB': 'KGRB',  // Green Bay
+            'ARX': 'KARX',  // La Crosse
+        
+            // Wyoming
+            'CYS': 'KCYS',  // Cheyenne
+            'RIW': 'KRIW',  // Riverton
+        };
 
         async function setLocation(lat, lon) {
             currentLocation.lat = lat;
@@ -534,34 +765,38 @@ fetch(pointData.properties.forecast, { headers: API_CONFIG.headers }),
                 `FORECAST: ${forecast[1].name.toUpperCase()} - ${forecast[1].shortForecast.toUpperCase()}`;
         }
 
-               async function updateRadar(lat, lon) {
-            try {
-                const pointResponse = await fetch(
-                    `https://api.weather.gov/points/${lat},${lon}`,
-                    { headers: API_CONFIG.headers }
-                );
-                
-                if (!pointResponse.ok) {
-                    throw new Error('Failed to fetch NWS office');
-                }
-                
-                const pointData = await pointResponse.json();
-                const officeId = pointData.properties.cwa;
-                const radarStation = 'CONUS';  // Simplified to always use national radar
-                
-                const radarImage = document.getElementById('radarImage');
-                const radarUrl = `https://radar.weather.gov/ridge/standard/${radarStation}_loop.gif`;
-                radarImage.src = radarUrl;
-                
-                currentLocation.radarStation = radarStation;
-                return radarStation;
-            } catch (error) {
-                console.error('Error updating radar:', error);
-                const radarImage = document.getElementById('radarImage');
-                radarImage.src = 'https://radar.weather.gov/ridge/standard/CONUS_loop.gif';
-                return 'CONUS';
-            }
+        async function updateRadar(lat, lon) {
+    try {
+        const pointResponse = await fetch(
+            `https://api.weather.gov/points/${lat},${lon}`,
+            { headers: API_CONFIG.headers }
+        );
+        
+        if (!pointResponse.ok) {
+            throw new Error('Failed to fetch NWS office');
         }
+        
+        const pointData = await pointResponse.json();
+        const officeId = pointData.properties.cwa;
+        
+        // Get radar station from mapping
+        const radarStation = RADAR_STATIONS[officeId] || 'CONUS';
+        console.log('Mapped office', officeId, 'to radar station:', radarStation);
+        
+        // Update radar image
+        const radarImage = document.getElementById('radarImage');
+        const radarUrl = `https://radar.weather.gov/ridge/standard/${radarStation}_loop.gif`;
+        radarImage.src = radarUrl;
+        
+        currentLocation.radarStation = radarStation;
+        return radarStation;
+    } catch (error) {
+        console.error('Error updating radar:', error);
+        // Fallback to national radar
+        const radarImage = document.getElementById('radarImage');
+        radarImage.src = 'https://radar.weather.gov/ridge/standard/CONUS_loop.gif';
+        return 'CONUS';
+    }
         function showError() {
             document.getElementById('temperature').textContent = 'Error';
             document.getElementById('conditions').textContent = 'Weather data unavailable';
