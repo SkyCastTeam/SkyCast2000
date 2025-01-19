@@ -561,7 +561,7 @@ fetch(pointData.properties.forecast, { headers: API_CONFIG.headers }),
                 radarImage.src = 'https://radar.weather.gov/ridge/standard/CONUS_loop.gif';
                 return 'CONUS';
             }
-
+        }
         function showError() {
             document.getElementById('temperature').textContent = 'Error';
             document.getElementById('conditions').textContent = 'Weather data unavailable';
