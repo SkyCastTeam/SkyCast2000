@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast 2000 - Maintenance</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+            overflow: hidden;
+            color: white;
+            min-height: 100vh;
+            background: url('https://raw.githubusercontent.com/SkyCastTeam/SkyCast2000/refs/heads/main/Images/background.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .glass-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 51, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 10;
+        }
+
+        .downtime-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: rgba(0, 0, 51, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 24px;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                height: auto;
+                padding: 10px;
+            }
+
+            .downtime-message {
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .logo {
+                width: 150px;
+            }
+
+            .message {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container"></div>
+    
+    <div class="header">
+    </div>
+
+    <div class="downtime-message">
+        <img src="https://raw.githubusercontent.com/SkyCastTeam/SkyCast2000/refs/heads/main/Images/Logo/modern-logo-center.png" alt="SkyCast 2000" class="logo">
+        <div class="message">
+            SkyCast is down currently, but don't look away! We will be right back!
+        </div>
+    </div>
+</body>
+</html>
